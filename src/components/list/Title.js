@@ -2,7 +2,7 @@ import { InputBase, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { MoreHoriz } from "@mui/icons-material";
 
-export const Title = () => {
+export const Title = ({ title }) => {
 	const [open, setOpen] = useState(false);
 
 	return (
@@ -10,7 +10,7 @@ export const Title = () => {
 			{open ? (
 				<div>
 					<InputBase
-						value="Todo"
+						value={title}
 						autoFocus
 						fullWidth
 						inputProps={{ className: "listInput" }}
@@ -23,7 +23,7 @@ export const Title = () => {
 						className="listTitle"
 						onClick={() => setOpen(!open)}
 					>
-						Todo
+						{title}
 					</Typography>
 					<MoreHoriz />
 				</div>

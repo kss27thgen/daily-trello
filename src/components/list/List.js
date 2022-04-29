@@ -5,19 +5,18 @@ import { Card } from "../card/Card";
 import { InputContainer } from "../input/InputContainer";
 import { Title } from "./Title";
 
-export const List = () => {
+export const List = ({ list }) => {
 	return (
 		<div className="list">
 			<Paper className="listPaper">
 				<CssBaseline />
-				<Title />
+				<Title title={list.title} />
 
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+				{list.cards.map((card) => (
+					<Card key={card.id} card={card} />
+				))}
 
-				<InputContainer />
+				<InputContainer listId={list.id} />
 			</Paper>
 		</div>
 	);
